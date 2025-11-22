@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Karthikeyan S — Full‑Stack Python Developer</title>
+
+  <!-- Vite-ready single-file landing page (place in /src or public as needed) -->
+  <!-- Font: Outfit -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <!-- Font Awesome (free CDN) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <meta name="description" content="Karthikeyan S — Full‑Stack Python Developer & Data Enthusiast. Django, Python, SQL, Data Viz and Cloud." />
+
+  <style>
+    :root{
+      --bg:#050505;
+      --glass: rgba(255,255,255,0.03);
+      --glass-border: rgba(255,255,255,0.06);
+      --primary: #00E5FF; /* neon cyan chosen */
+      --accent-glow: 0 8px 32px rgba(0,229,255,0.12);
+      --accent-strong: 0 12px 40px rgba(0,229,255,0.18);
+      --glass-blur: 8px;
+      --max-width: 1200px;
+      --radius: 14px;
+      font-family: 'Outfit', system-ui, -apple-system, "Segoe UI", Roboto, 'Helvetica Neue', Arial;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%;background:linear-gradient(180deg,#040406 0%, #050505 100%);color:#e6eef3;margin:0}
+    a{color:var(--primary);text-decoration:none}
+
+    .container{max-width:var(--max-width);margin:0 auto;padding:32px}
+
+    /* NAVBAR */
+    header.navbar{position:fixed;left:0;right:0;top:16px;z-index:60;backdrop-filter: blur(8px);-webkit-backdrop-filter: blur(8px)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 18px;margin:0 auto;background:var(--glass);border-radius:16px;border:1px solid rgba(255,255,255,0.06);box-shadow:var(--accent-glow);max-width:var(--max-width)}
+
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand .logo{width:44px;height:44px;border-radius:50%;overflow:hidden;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.06);background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))}
+    .brand .logo img{width:100%;height:100%;object-fit:cover}
+    .brand h1{font-size:18px;margin:0;font-weight:700;letter-spacing:0.4px}
+    .brand h1 .accent{color:var(--primary);text-shadow:0 6px 18px rgba(0,229,255,0.08)}
+
+    nav.main-nav{display:flex;gap:22px;align-items:center}
+    nav.main-nav a{color:#cfeff6;font-weight:600;padding:10px 6px;display:inline-flex;align-items:center;height:44px}
+
+    /* HERO */
+    .hero{padding-top:120px;padding-bottom:48px}
+    .hero-inner{display:grid;grid-template-columns:1fr 420px;gap:40px;align-items:center}
+
+    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);padding:36px;border-radius:16px;border:1px solid var(--glass-border);box-shadow:var(--accent-glow)}
+    .headline{font-size:40px;line-height:1.02;margin:0 0 12px;font-weight:800}
+    .subtitle{color:#bfeff8;margin-bottom:20px;font-weight:600}
+
+    .cta-row{display:flex;gap:12px;margin-bottom:18px}
+    .btn{padding:12px 18px;border-radius:12px;font-weight:700;cursor:pointer;border:1px solid rgba(255,255,255,0.04);display:inline-flex;align-items:center;gap:10px}
+    .btn-primary{background:linear-gradient(90deg,var(--primary), #69fbff);color:#001;box-shadow:var(--accent-strong)}
+    .btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.06);color:#d7f6fb}
+
+    .stats{display:flex;gap:18px;margin-top:8px}
+    .stat{background:var(--glass);padding:12px;border-radius:12px;min-width:110px;text-align:center;border:1px solid rgba(255,255,255,0.04)}
+    .stat .num{font-weight:800;color:var(--primary);font-size:20px}
+    .stat .label{font-size:12px;color:#bfeff8}
+
+    /* right column: profile card */
+    .profile-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.05);display:flex;flex-direction:column;gap:14px;align-items:center}
+    .profile-img{width:180px;height:180px;border-radius:50%;overflow:hidden;border:2px solid var(--glass-border);box-shadow:var(--accent-glow)}
+    .profile-img img{width:100%;height:100%;object-fit:cover}
+    .floating{animation:floaty 6s ease-in-out infinite}
+    @keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-10px)}100%{transform:translateY(0)}}
+
+    /* Skills marquee */
+    .skills-track{margin:28px 0;padding:14px;border-radius:12px;background:linear-gradient(90deg, rgba(255,255,255,0.015), transparent);border:1px solid rgba(255,255,255,0.04);overflow:hidden}
+    .marquee{display:flex;gap:18px;align-items:center;white-space:nowrap;animation:marq 20s linear infinite}
+    .skill-pill{padding:10px 16px;border-radius:999px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);transition:all .2s ease}
+    .skill-pill:hover{box-shadow:0 6px 30px rgba(0,229,255,0.14);transform:translateY(-4px);border-color:var(--primary)}
+    @keyframes marq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+    /* About */
+    .about{display:grid;grid-template-columns:360px 1fr;gap:28px;align-items:start}
+    .about .bio h2{margin-top:0}
+    .tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .tags .tag{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);color:#bfeff8}
+
+    /* Featured content */
+    .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .card{position:relative;border-radius:12px;overflow:hidden;background:#0a0a0b;border:1px solid rgba(255,255,255,0.04)}
+    .thumb{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+    .play{position:absolute;left:16px;bottom:16px;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(90deg,var(--primary),#69fbff);box-shadow:var(--accent-strong);border:2px solid rgba(255,255,255,0.08);cursor:pointer}
+    .card .meta{padding:12px}
+
+    /* social */
+    .socials{display:flex;gap:12px}
+    .social{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--glass);border:1px solid rgba(255,255,255,0.04);transition:transform .18s ease, box-shadow .18s ease, background .18s ease}
+    .social i{font-size:22px;color:var(--primary);transition:color .18s ease, transform .18s ease}
+    .social:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(0,229,255,0.12);background:linear-gradient(90deg,var(--primary),#69fbff)}
+    .social:hover i{color:#001}
+
+    footer{padding:28px 0;margin-top:40px;text-align:center;color:#93f8ff}
+
+    /* responsiveness */
+    @media (max-width:1000px){
+      .hero-inner{grid-template-columns:1fr}
+      .about{grid-template-columns:1fr}
+      .cards{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:600px){
+      nav.main-nav{display:none}
+      .nav-inner{padding:10px}
+      .headline{font-size:28px}
+      .cards{grid-template-columns:1fr}
+    }
+
+    /* scroll animations */
+    .reveal{opacity:0;transform:translateY(18px);transition:all .7s cubic-bezier(.2,.9,.2,1)}
+    .reveal.show{opacity:1;transform:none}
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-inner container">
+      <div class="brand">
+        <div class="logo"><img src="logo.jpg" alt="logo"></div>
+        <h1><span class="accent">Karthikeyan</span> <span style="color:#9fdff6;font-weight:600;margin-left:6px">S</span></h1>
+      </div>
+
+      <nav class="main-nav" aria-label="Main Navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#featured">Projects</a>
+        <a href="#community">Community</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div style="display:flex;gap:10px;align-items:center">
+        <a class="btn btn-outline" href="/mnt/data/Karthikeyan_S__Resume.pdf" target="_blank">Download Resume</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="home" class="hero">
+      <div class="hero-inner">
+        <div class="hero-card reveal">
+          <p class="subtitle">Python Developer | Full‑Stack (Django) | Data & Automation</p>
+          <h2 class="headline">Building data‑driven web apps that scale — from prototype to production</h2>
+
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#featured">See Projects</a>
+            <a class="btn btn-outline" href="mailto:karthikeyansbecse@gmail.com">Contact Me</a>
+          </div>
+
+          <div class="stats" aria-hidden>
+            <div class="stat"><div class="num">1+</div><div class="label">Years Experience</div></div>
+            <div class="stat"><div class="num">3</div><div class="label">Featured Projects</div></div>
+            <div class="stat"><div class="num">5+</div><div class="label">Tools & Technologies</div></div>
+          </div>
+
+          <p style="margin-top:18px;color:#bfeff8">Experienced in Django, MySQL, Pandas and building dashboards & backend services. Passionate about automation, clean code and data visualizations.</p>
+        </div>
+
+        <div class="profile-card floating reveal">
+          <div class="profile-img"><img src="portfolio image.jpg" alt="Profile"></div>
+          <div style="text-align:center">
+            <div style="font-weight:800">Karthikeyan S</div>
+            <div style="font-size:13px;color:#bfeff8">Application Developer @ Genpact (Nov 2023 – Feb 2025)</div>
+            <div style="margin-top:8px;font-size:13px;color:#9fdff6">Dharmapuri, Tamil Nadu • karthikeyansbecse@gmail.com</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skills marquee -->
+      <div class="skills-track reveal">
+        <div class="marquee" onmouseover="this.style.animationPlayState='paused'" onmouseout="this.style.animationPlayState='running'">
+          <!-- Repeat skills twice for infinite loop -->
+          <span class="skill-pill">Python</span>
+          <span class="skill-pill">Django</span>
+          <span class="skill-pill">SQL / MySQL</span>
+          <span class="skill-pill">RESTful APIs</span>
+          <span class="skill-pill">Pandas</span>
+          <span class="skill-pill">NumPy</span>
+          <span class="skill-pill">Matplotlib</span>
+          <span class="skill-pill">AWS (EC2, S3, Lambda)</span>
+          <span class="skill-pill">Power BI</span>
+          <span class="skill-pill">Tableau</span>
+
+          <span style="width:40px;display:inline-block"></span>
+
+          <span class="skill-pill">Python</span>
+          <span class="skill-pill">Django</span>
+          <span class="skill-pill">SQL / MySQL</span>
+          <span class="skill-pill">RESTful APIs</span>
+          <span class="skill-pill">Pandas</span>
+          <span class="skill-pill">NumPy</span>
+          <span class="skill-pill">Matplotlib</span>
+          <span class="skill-pill">AWS (EC2, S3, Lambda)</span>
+          <span class="skill-pill">Power BI</span>
+          <span class="skill-pill">Tableau</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="reveal">
+      <div class="about">
+        <div style="display:flex;flex-direction:column;gap:12px;align-items:center">
+          <div class="profile-img floating" style="width:260px;height:260px"><img src="about.png" alt="profile"></div>
+          <a class="btn btn-outline" href="/mnt/data/Karthikeyan_S__Resume.pdf" target="_blank" style="width:100%">Open Full Resume</a>
+        </div>
+
+        <div class="bio">
+          <h2>About — Motivated Python Developer focused on scalable web apps</h2>
+          <p>Motivated Python Developer with experience building full‑stack applications using Django and MySQL. I focus on data pipelines, dashboards and backend automation to enable stakeholders with timely insights.</p>
+          <p>I have worked on internal analytics tools, training administration portals with RBAC, and document automation integrations. I apply OOP principles, code reuse and query optimization to improve performance.</p>
+          <p>Education: B.Tech — Computer Science (M. Kumarasamy College of Engineering, 2019–2023). CGPA: 8.35</p>
+
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">Django</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">Data Visualizations</span>
+            <span class="tag">AWS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED CONTENT (Projects as "videos") -->
+    <section id="featured" style="margin-top:36px" class="reveal">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+        <h3 style="margin:0">Featured Projects</h3>
+        <a class="btn btn-outline" href="https://www.linkedin.com/in/karthikeyan-s-84238038a/" target="_blank">View All Projects</a>
+      </div>
+
+      <div class="cards">
+        <!-- Card 1: Training Administration Portal -->
+        <div class="card">
+          <!-- Using a placeholder YouTube ID; replace VIDEO_ID_x with real IDs if you have them -->
+          <img class="thumb" src="" alt="Training Portal">
+          <div class="play" data-url="" title="Open Project" onclick="openProject(event, 'https://github.com/Karthikeyan8838/trainingproject')">
+            <i class="fas fa-play" style="color:#001"></i>
+          </div>
+          <div class="meta">
+            <div style="font-weight:800">Training Administration Portal</div>
+            <div style="color:#bfeff8;font-size:13px">Full‑stack Django app for scheduling, RBAC and enrollments. Optimized DB queries and built REST APIs for integrations.</div>
+          </div>
+        </div>
+
+        <!-- Card 2: Internal Analytics Dashboards -->
+        <div class="card">
+          <img class="thumb" src="Audio_to_text.png" alt="Audio To Text Converter">
+          <div class="play" onclick="openProject(event, 'https://github.com/KarthikeyanS007-coder/Task.git')"><i class="fas fa-play" style="color:#001"></i></div>
+          <div class="meta">
+            <div style="font-weight:800">Audio to text Convertor</div>
+            <div style="color:#bfeff8;font-size:13px">A Python & Django web app that converts uploaded .wav audio files into text using Google Speech Recognition.</div>
+          </div>
+        </div>
+
+        
+        </div>
+
+        <!-- Card 4: Tooling & Automation -->
+        
+      </div>
+
+      <div style="margin-top:14px;text-align:right">
+        <a class="btn btn-primary" href="https://github.com/Karthikeyan8838" target="_blank">View All Projects on Github</a>
+      </div>
+    </section>
+
+    <!-- COMMUNITY / SOCIAL -->
+    <section id="community" style="margin-top:36px" class="reveal">
+      <h3>Community & Social</h3>
+      <p style="color:#bfeff8">Connect with me for project updates, dev tips and data insights.</p>
+
+      <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
+        <a class="social" href="https://www.linkedin.com/in/karthikeyan-s-84238038a/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a class="social" href="https://github.com/Karthikeyan8838" target="_blank"><i class="fab fa-github"></i></a>
+        <a class="social" href="https://wa.me/message/TLBZWLVDM6R7B1" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </section>
+
+    <footer id="contact">
+      <p>© 2025 Karthikeyan S. All rights reserved.</p>
+      <p style="font-size:13px;color:#9fdff6">Resume: <a href="/mnt/data/Karthikeyan_S__Resume.pdf" target="_blank">Open PDF</a></p>
+    </footer>
+  </main>
+
+  <script>
+    // Simple reveal on scroll
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show')}})
+    },{threshold:0.12});
+    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+    // Click-to-play (open thumbnail / project link in new tab)
+    function openProject(e, url){
+      // Open the project (or video) in a new tab as required
+      window.open(url, '_blank');
+    }
+
+    // Smooth scroll for nav
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        e.preventDefault();
+        const target = document.querySelector(a.getAttribute('href'));
+        if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
+      })
+    })
+  </script>
+</body>
+</html>
+5
